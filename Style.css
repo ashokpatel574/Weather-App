@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg-color-one: #43affc;
+  --bg-color-two: #fff;
+  --text-color-one: #fff;
+  --border-radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color-one);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.wrapper {
+  background-color: var(--bg-color-two);
+  max-width: 42rem;
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.wrapper header {
+  color: var(--bg-color-one);
+  font-size: 2.4rem;
+  font-weight: 600;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+header i {
+  cursor: pointer;
+  font-size: 0px;
+  margin-right: 8px;
+}
+
+.wrapper.active header i {
+  font-size: 3rem;
+  margin-left: 5px;
+}
+
+.wrapper.active .input_part {
+  display: none;
+}
+
+.input_part {
+  margin: 2rem 2.5rem 3rem;
+}
+
+.input_part .info_text {
+  display: none;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+.info_text.error {
+  display: block;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.info_text.pending {
+  display: block;
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+  color: #0c5460;
+}
+
+.input_part :where(button, input) {
+  width: 100%;
+  font-size: 1.8rem;
+  padding: 1.6rem 3.2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  letter-spacing: 0.1rem;
+}
+
+.input_part input {
+  border: 1px solid #bfbfbf;
+  text-align: center;
+  outline: none;
+}
+
+.input_part input:is(:focus, :valid) {
+  border: 2px solid var(--bg-color-one);
+}
+
+.input_part .separator {
+  height: 1px;
+  margin: 2.5rem 0;
+  background-color: #ccc;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_part .separator::before {
+  content: "or";
+  font-size: 1.8rem;
+  color: #ccc;
+  background-color: var(--bg-color-two);
+  padding: 0 1.5rem;
+}
+
+.btn_location {
+  color: #fff;
+  background-color: var(--bg-color-one);
+  cursor: pointer;
+}
+
+.wrapper.active .weather_part {
+  display: flex;
+}
+
+.wrapper .weather_part {
+  margin: 3rem 0 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.weather_part img {
+  max-width: 12.5rem;
+}
+
+.weather_part .weather_temp {
+  display: flex;
+  font-size: 7.2rem;
+  font-weight: 500;
+}
+
+.weather_part .weather_temp .numb {
+  font-weight: 600;
+}
+
+.weather_part .weather_temp .temp_deg {
+  font-size: 4rem;
+  margin: 1rem 0.5rem 0 0;
+  display: block;
+}
+
+.weather_info {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.weather_part .weather_location {
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.weather_part .weather_location i {
+  font-size: 2.4rem;
+  margin-right: 8px;
+}
+
+.weather_other-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #bfbfbf;
+}
+
+.weather_other-details .column {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.column i {
+  font-size: 4rem;
+  color: var(--bg-color-one);
+  margin-right: 0.8rem;
+}
+
+.column.humidity {
+  border-left: 1px solid #bfbfbf;
+}
+
+.column_details .weather_temp,
+.humidity span {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: -3px;
+}
+
+.column_details .weather_temp .temp_deg {
+  margin: 0;
+  font-size: 1.8rem;
+  padding: 0 2px 0 1px;
+}
+
+.column_details p {
+  font-size: 1.4rem;
+  margin-top: -2px;
+}
+
+/* Media Query Section */
+
+/*  448px = 28rem */
+
+@media (max-width: 28rem) {
+  .wrapper {
+    max-width: 34rem;
+  }
+
+  .wrapper header {
+    font-size: 2.4rem;
+  }
+
+  .weather_part img {
+    max-width: 11.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .weather_part .weather_temp {
+    font-size: 6rem;
+  }
+
+  .weather_part .weather_temp .temp_deg {
+    font-size: 3.6rem;
+  }
+
+  .weather_info {
+    font-size: 1.8rem;
+  }
+
+  .column_details .weather_temp,
+  .humidity span {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: -3px;
+  }
+
+  .column_details .weather_temp .temp_deg {
+    margin: 0;
+    font-size: 1.8rem;
+    padding: 0 2px 0 1px;
+  }
+}
